@@ -1,5 +1,5 @@
-# Nginx + PHP-FPM
-Dockerを使用したLaravel環境を構築
+# Laravel環境構築
+Laradockではなくofficialイメージを使用して構築します。
 
 ## ツール
 * Docker for Windows (or Max)
@@ -15,7 +15,6 @@ Dockerを使用したLaravel環境を構築
 * Nginx ver. 1.14.0
 * PHP ver. 7.1.17
 * MySQL ver. 8
-* Larave ver. 5.5.40
 
 ## 使用方法
 ```
@@ -26,8 +25,15 @@ Dockerを使用したLaravel環境を構築
 5. composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
      ※使いたいバージョンをインストール
 6. .envを以下の様に編集
+7. Docker For Windows or Mac の 場合           : `http://localhost`
+   Docker Toolbox  の場合IPを変更していなければ  : `http://192.168.99.100`
+   Laravel Welcomeページが確認できます。
 ```
 
+## .env 編集
 ```
-
+DB_HOST=laravel-db
+DB_DATABASE=laravel-db
+DB_USERNAME=laravel
+DB_PASSWORD=laravel
 ```
