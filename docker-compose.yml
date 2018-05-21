@@ -2,32 +2,31 @@ version: '2'
 services:
 
 ### Nginx ###
-    laravel-web:
+    web:
       image: nginx:1.14.0-alpine
-      container_name: laravel-nginx
+      container_name: nginx-1.14
       privileged: true
       links:
-        - laravel-app
+        - app
       ports:
         - "80:80"
-        - "443:443"
       volumes:
         - ./web/default.conf:/etc/nginx/conf.d/default.conf
 
 ### PHP ###
-    laravel-app:
+    app:
       build: ./php
-      container_name: laravel-php-fpm
+      container_name: php7-fpm
       privileged: true
       links:
-        - laravel-db
+        - db
       volumes:
         - ./src:/var/www:cached
 
 ### MySQL###
-    laravel-db:
+    db:
       image: mysql
-      container_name: laravel-db
+      container_name: mysql8
       ports: 
         - "3036:3036"
       environment:
@@ -38,10 +37,10 @@ services:
       volumes:
         - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       volumes_from:
-        - laravel-data
+        - data
       privileged: true
 
 ### 保存領域 ###
-    laravel-data:
+    data:
       image: busybox
       container_name: data-container
