@@ -23,18 +23,17 @@ Laradockではなくofficialイメージを使用して構築します。
 2. cd docker-laravel
 3. docker-compose up -d
 4. docker-compose exec app composer install
-5. docker-compose exec app cp ./laravel/.env.example ./laravel/.env
+5. docker-compose exec app cp .env.example .env
 6. docker-compose exec app php artisan key:generate
 ```
 
 ## Laravel Ver 変更
 ```
-使用方法 3. docker-compose up -d に以下を行ってください
-1. docker exec -it php_fpm bash
-2. rm -fr laravel
-3. composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
+使用方法 3. docker-compose up -d 後に以下を行ってください
+1. docker-compose exec app rm -fr laravel
+2. docker-compose exec composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
      ※使いたいバージョンをインストール
-4. .envを以下の様に編集
+3. .envを以下の様に編集
 ```
 
 ## .env 編集
