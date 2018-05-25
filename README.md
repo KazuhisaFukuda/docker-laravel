@@ -1,4 +1,4 @@
-# Laravel環境構築
+# Laravel開発環境構築
 Laradockではなくofficialイメージを使用して構築します。
 
 ## ツール
@@ -14,26 +14,35 @@ Laradockではなくofficialイメージを使用して構築します。
 ## 環境
 * Nginx ver. 1.14.0
 * PHP ver. 7.1.17
-* MySQL ver. 8
+* MySQL ver. 5.7.22
 
 ## 使用方法
 ```
-1. git clone https://github.com/Kazuo123/docker-laravel.git
+1. https://github.com/KazuhisaFukuda/docker-laravel.git
 2. cd docker-laravel
 3. docker-compose up -d
-4. docker exec -it php7-fpm bash
-5. composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
+```
+
+## Laravel Ver 変更
+```
+使用方法 3. docker-compose up -d に以下を行ってください
+1. docker exec -it php_fpm bash
+2. rm -fr laravel
+3. composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
      ※使いたいバージョンをインストール
-6. .envを以下の様に編集
-7. Docker For Windows or Mac の 場合           : `http://localhost`
-   Docker Toolbox  の場合IPを変更していなければ  : `http://192.168.99.100`
-   Laravel Welcomeページが確認できます。
+4. .envを以下の様に編集
 ```
 
 ## .env 編集
 ```
-DB_HOST=laravel-db
+DB_HOST=dbserver
 DB_DATABASE=laravel-db
 DB_USERNAME=laravel
 DB_PASSWORD=laravel
 ```
+
+## Welcome Page
+| ツール | URL |
+| ---- | ---- |
+| docker for windows (or mac) | http://localhost |
+| docker toolbox | http://192.168.99.100 |
