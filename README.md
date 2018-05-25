@@ -12,6 +12,7 @@ Laradockではなくofficialイメージを使用して構築します。
 * busybox:latest [(OFFICIAL)](https://hub.docker.com/_/busybox/)
 
 ## 環境
+* Laravel ver. 5.5.40
 * Nginx ver. 1.14.0
 * PHP ver. 7.1.17
 * MySQL ver. 5.7.22
