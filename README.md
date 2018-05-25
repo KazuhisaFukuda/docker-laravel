@@ -21,8 +21,9 @@ Laradockではなくofficialイメージを使用して構築します。
 1. https://github.com/KazuhisaFukuda/docker-laravel.git
 2. cd docker-laravel
 3. docker-compose up -d
-4. docker-compose exec app cp ./laravel/.env.example ./laravel/.env
-5. 
+4. docker-compose exec app composer install
+5. docker-compose exec app cp ./laravel/.env.example ./laravel/.env
+6. docker-compose exec app php artisan key:generate
 ```
 
 ## Laravel Ver 変更
