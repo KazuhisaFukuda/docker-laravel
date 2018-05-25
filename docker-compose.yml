@@ -2,10 +2,9 @@ version: '2'
 services:
 
 ### Nginx ###
-    web:
+    webserver:
       image: nginx:1.14.0-alpine
-      container_name: nginx-1.14
-      privileged: true
+      container_name: nginx_1.14
       links:
         - app
       ports:
@@ -16,29 +15,27 @@ services:
 ### PHP ###
     app:
       build: ./php
-      container_name: php7-fpm
-      privileged: true
+      container_name: php_fpm
       links:
-        - db
+        - dbserver
       volumes:
         - ./src:/var/www:cached
 
 ### MySQL###
-    db:
-      image: mysql
-      container_name: mysql8
+    dbserver:
+      image: mysql:5.7
+      container_name: mysql_5.7
       ports: 
         - "3036:3036"
       environment:
         - MYSQL_ROOT_PASSWORD=password
-        - MYSQL_DATABASE=env-laravel-db
+        - MYSQL_DATABASE=laravel-db
         - MYSQL_USER=laravel
         - MYSQL_PASSWORD=laravel
       volumes:
         - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
       volumes_from:
         - data
-      privileged: true
 
 ### 保存領域 ###
     data:
