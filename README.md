@@ -30,10 +30,11 @@ Laradockではなくofficialイメージを使用して構築します。
 ## Laravel Ver 変更
 ```
 使用方法 3. docker-compose up -d 後に以下を行ってください
-1. docker-compose exec app rm -fr laravel
-2. docker-compose exec composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
+1. docker exec -it php_fpm bash
+2. cd .. && rm -fr laravel
+3. docker-compose exec composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
      ※使いたいバージョンをインストール
-3. .envを以下の様に編集
+4. .envを以下の様に編集
 ```
 
 ## .env 編集
