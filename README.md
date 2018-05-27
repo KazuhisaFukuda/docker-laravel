@@ -33,7 +33,7 @@ Laradockではなくofficialイメージを使用して構築します。
 1. docker exec -it php_fpm bash
 2. cd .. && rm -fr laravel
 3. composer create-project --prefer-dist laravel/laravel laravel "5.5.*"
-     ※使いたいバージョンをインストール
+     ※使用したいバージョンをインストール
 4. .envを以下の様に編集
 ```
 
