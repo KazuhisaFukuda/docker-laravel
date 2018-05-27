@@ -9,4 +9,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/tmp \
 
 RUN apt-get update && apt-get install -y zip unzip
 
-WORKDIR /var/www
+WORKDIR /var/www/laravel
